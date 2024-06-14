@@ -21,7 +21,8 @@ include '.';
                 </button>
             </li>
             <li class="partyName">
-                <h3>getIdFiesta</h3>
+                <?php getNombreFiesta() ?>
+                <!-- <h3>getIdFiesta</h3> -->
             </li>
         </ul>
     </nav>
