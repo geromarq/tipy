@@ -3,7 +3,7 @@
 function getNombreFiesta()
 {
     if (isset($_GET['idfiesta'])) {
-        $idFiesta = htmlspecialchars($_GET['idfiesta']); // htmlspecialchars() is used to avoid XSS attacks
+        $idFiesta = htmlspecialchars($_GET['idfiesta']); 
         $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
         $registros = mysqli_query($conexion, "SELECT nombre_fiesta FROM fiestas WHERE id_fiesta = '$idFiesta' ") or die("Problemas en el select:" . mysqli_error($conexion));
         if (mysqli_num_rows($registros)) {
