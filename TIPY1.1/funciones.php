@@ -4,7 +4,7 @@ Funcionalidades CLIENTE
 */
 function getNombreFiesta()
 {
-    var $paseValido = true;
+    $paseValido = true;
     if (isset($_GET['idfiesta'])) {
         $idFiesta = htmlspecialchars($_GET['idfiesta']);
         $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
@@ -15,7 +15,7 @@ function getNombreFiesta()
             return false;
         }
         mysqli_close($conexion);
-        echo "<h3>Hello, $idFiesta!</h3>";
+        echo "<h3>$idFiesta</h3>";
     } else {
         echo "<p>Parameters 'name' and 'age' are not set in the URL.</p>";
     }
@@ -62,10 +62,13 @@ function sugerir($numeroTelef, $tipSol, $textoSug, $montoPropina, $monto)
     mysqli_query($conexion, "INSERT INTO solicitudes(UsuarioID, TipoSolicitud, TextoSolicitud, MontoPropina, Estado, FiestaID) VALUES ('$usuario','$tipSol','$textoSug','$monto','Pendiente','$idFiesta')") or die("Problemas en la alta de salon." . mysqli_error($conexion));
     mysqli_close($conexion);
 }
+
+
+//Temporal vvvv Esto es para limitar el numero de sugerencias cada 30 minutos a 10 
 function numSugerencias()
 {
     $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
-    $resultado = mysqli_query($conexion, "SELECT HoraPedido FROM sugerencias") or die("Problemas en el select:" . mysqli_error($conexion));
+    $resultado = mysqli_query($conexion, "SELECT HoraPedido FROM solicitudes") or die("Problemas en el select:" . mysqli_error($conexion));
     $intervalos = [];
     while ($row = mysqli_fetch_assoc($resultado)) {
         $horaPedido = new DateTime($row['HoraPedido']);
@@ -82,13 +85,40 @@ function numSugerencias()
     }
     
     foreach ($intervalos as $count) {
-        if ($count > 10) {
+        if ($count > 10) {                      //Modificar este numero para limitar el numero de sugerencias
             mysqli_close($conexion);
             return false;
         }
     }
     mysqli_close($conexion);
     return true;
+}
+//limita la cantidad de pedidos a 3 cada 3 por usuario vvv
+function numUserSugerencia(){
+    $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
+
+    $current_time = new DateTime();
+    $current_minutes = $current_time->format('i');
+
+
+    if ($current_minutes < 30) {
+        $interval_start = $current_time->format('Y-m-d H:') . '00:00';
+        $interval_end = $current_time->format('Y-m-d H:') . '29:59';
+    } else {
+        $interval_start = $current_time->format('Y-m-d H:') . '30:00';
+        $interval_end = $current_time->format('Y-m-d H:') . '59:59';
+    }
+
+
+    $query = "SELECT COUNT(*) as cantidad FROM solicitudes WHERE UsuarioID = '$id_usuario' AND HoraPedido BETWEEN '$interval_start' AND '$interval_end'";
+    $resultado = mysqli_query($conexion, $query) or die("Problemas en el select:" . mysqli_error($conexion));
+
+
+    $row = mysqli_fetch_assoc($resultado);
+    $count = $row['cantidad'];
+
+    mysqli_close($conexion);
+    return $count <= 3;
 }
 
 /*

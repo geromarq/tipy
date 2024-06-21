@@ -61,7 +61,7 @@ function checkUserId() {
     }
 }
 
-// Call checkUserId on window load
+// VERIFICAR ESTO
 window.onload = function() {
     checkUserId();
 };
