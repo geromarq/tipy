@@ -4,7 +4,7 @@ Funcionalidades CLIENTE
 */
 function getNombreFiesta()
 {
-    var $paseValido = true;
+    $paseValido = true;
     if (isset($_GET['idfiesta'])) {
         $idFiesta = htmlspecialchars($_GET['idfiesta']);
         $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
@@ -90,6 +90,34 @@ function numSugerencias()
     mysqli_close($conexion);
     return true;
 }
+function numUserSugerencia($telefono){
+    $current_time = new DateTime();
+    $current_minutes = $current_time->format('i');
+
+
+    if ($current_minutes < 30) {
+        $intervalo_inicio = $current_time->format('Y-m-d H:') . '00:00';
+        $intervalo_fin = $current_time->format('Y-m-d H:') . '29:59';
+    } else {
+        $intervalo_inicio = $current_time->format('Y-m-d H:') . '30:00';
+        $intervalo_fin = $current_time->format('Y-m-d H:') . '59:59';
+    }
+
+    $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
+
+    $query = "SELECT COUNT(*) as cuenta FROM sugerencias WHERE ID_usuario = '$id_usuario' AND HoraPedido BETWEEN '$intervalo_inicio' AND '$intervalo_fin'";
+    $resultado = mysqli_query($conexion, $query) or die("Problemas en el select:" . mysqli_error($conexion));
+
+
+    $row = mysqli_fetch_assoc($resultado);
+    $cuenta = $row['cuenta']; 
+
+    mysqli_close($conexion); 
+
+    return $cuenta <= 3; 
+
+}
+
 
 /*
 Funcionalidades DJ
