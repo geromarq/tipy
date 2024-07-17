@@ -7,7 +7,7 @@ include '../funciones.php';
 
 <head>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-    <link rel="StyleSheet" href="estilos/estilos.css" type="text/css" />
+    <link rel="StyleSheet" href="../estilos/estilos.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>Tipy</title>
@@ -17,11 +17,11 @@ include '../funciones.php';
         <ul>
             <li>
                 <button onclick="showBienvenida()" class="botonLogo">
-                    <h1>Tipy</h1>
+                    <img src='../img/logo_violeta.png' > 
                 </button>
             </li>
             <li class="partyName">
-                <?php getNombreFiesta() ?>                
+                <?php getNombreFiesta(); ?>                
             </li>
         </ul>
     </nav>
@@ -32,7 +32,11 @@ include '../funciones.php';
                 Queres recomendar una cancion o decirle algo al dj, es facil. Decile
                 por aca
             </h5>
-            <button class="botonIngreso" onclick="showPrincipal()">Dale</button>
+            <br>
+            <form method="post" action="alta_sugerencia.php">
+            <h5>Ingrese su numero de telefono!</h5>
+            <input required type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" placeholder="e.g. 1234567890" title="Please enter a 10-digit phone number">       
+            <button type="button" class="botonIngreso" onclick="validateAndShowPrincipal()">Dale</button>
         </section>
     </article>
     <article class="principal" id="principal">
@@ -54,6 +58,7 @@ include '../funciones.php';
         </form>
     </article>
 </main>
-<script src="scripts.js"></script>
+<script src="../scripts.js"></script>
 
 </html>
+

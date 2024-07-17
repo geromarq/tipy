@@ -1,7 +1,19 @@
-function showPrincipal(){ 
+
+document.getElementById('phone-number').addEventListener('input', function(event) {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+function validateAndShowPrincipal() {
+    var phoneNumber = document.getElementById('phone-number').value;
+    if (!phoneNumber || phoneNumber.length !== 10) {
+        alert('Por favor, ingrese su número de teléfono de 10 dígitos.');
+    } else {
+        showPrincipal();
+    }
+}
+function showPrincipal() { 
     var principal = document.getElementById("principal"); 
     var bienvenida = document.getElementById("bienvenida");
-    /* sadas */
     principal.style.display = "block";
     bienvenida.style.display = "none";
 }
@@ -61,7 +73,7 @@ function checkUserId() {
     }
 }
 
-// Call checkUserId on window load
+// VERIFICAR ESTO
 window.onload = function() {
     checkUserId();
 };
