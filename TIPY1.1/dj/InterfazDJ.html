@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipy</title>
+  <link rel="stylesheet" href="InterfazDJ.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="container">
+      <h1 class="title">Tipy</h1>
+      <div class="profile">
+        <span class="profile-name">John Doe</span>
+      </div>
+    </div>
+    <div class="separation-line"></div>
+
+    <!-- Menú de navegación -->
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="configuracion.html">Configuración de Perfil</a></li>
+        <li><a href="tarifas.html">Tarifas de Propinas</a></li>
+      </ul>
+    </div>
+    <div class="separation-line"></div>
+
+    <!-- Notificaciones de Propinas -->
+    <div class="notifications-container centered-content">
+      <h2 class="section-title">Notificaciones de Propinas</h2>
+      <div class="notification">¡Nueva propina recibida de 50 $!</div>
+      <!-- Más notificaciones aquí -->
+    </div>
+    <div class="separation-line"></div>
+
+    <!-- Gestión de Propinas -->
+    <div class="tips-management-container">
+      <h2 class="section-title">Gestión de Propinas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Solicitud</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Solicitud 1</td>
+            <td>100 $</td>
+            <td>Pendiente</td>
+            <td class="actions">
+              <button class="btn accept-btn">Aceptar</button>
+              <button class="btn reject-btn">Rechazar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Solicitud 2</td>
+            <td>50 $</td>
+            <td>Completado</td>
+            <td class="actions">
+              <button class="btn accept-btn">Aceptar</button>
+              <button class="btn reject-btn">Rechazar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Solicitud 3</td>
+            <td>150 $</td>
+            <td>Pendiente</td>
+            <td class="actions">
+              <button class="btn accept-btn">Aceptar</button>
+              <button class="btn reject-btn">Rechazar</button>
+            </td>
+          </tr>
+          <!-- Más filas aquí -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="separation-line"></div>
+
+    <!-- Soporte Técnico -->
+    <div class="support-container centered-content">
+      <h2 class="section-title bold-title">Soporte Técnico</h2>
+      <button class="contact-support-btn">Contactar Soporte</button>
+    </div>
+  </div>
+</body>
+</html>

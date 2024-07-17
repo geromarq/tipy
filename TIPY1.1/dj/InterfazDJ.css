@@ -1,0 +1,202 @@
+/* Reset general para evitar márgenes y padding por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #121212; /* Fondo oscuro */
+  color: #fff; /* Color de texto blanco */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0;
+  color: #fff; /* Color de texto blanco */
+  margin-bottom: 15px;
+}
+
+.profile {
+  text-align: center;
+}
+
+.separation-line {
+  border-bottom: 1px solid #1e1e1e; /* Línea de separación coherente con el fondo */
+  width: 100%;
+  margin: 20px 0;
+}
+
+.menu {
+  width: 100%;
+  background-color: #1e1e1e; /* Fondo del menú */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Efecto 3D */
+  text-align: center; /* Centrar el texto dentro del menú */
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+button.contact-support-btn{
+  background-color: #444444; /* Fondo oscuro */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff; /* Color de texto blanco */
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.menu ul li a:hover {
+  background-color: #333333; /* Fondo oscuro al pasar el mouse */
+}
+
+.notifications-container,
+.tips-management-container,
+.profile-settings-container,
+.tip-rates-container,
+.support-container {
+  width: 100%; /* Ajustar el ancho al 100% */
+  margin: 20px 0;
+  padding: 20px;
+  background: #1e1e1e; /* Fondo oscuro */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Efecto 3D */
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.bold-title {
+  font-weight: bold; /* Título en negrita */
+}
+
+.notification {
+  background-color: #333333; /* Fondo oscuro */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%; /* Ajustar el ancho al 100% */
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #333333; /* Bordes oscuros */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #444444; /* Fondo oscuro */
+}
+
+.actions {
+  text-align: center;
+}
+
+.actions .btn {
+  width: 100px; /* Ancho fijo para los botones */
+  background-color: #444444; /* Fondo oscuro */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.actions .btn:hover {
+  background-color: #333333; /* Fondo oscuro al pasar el mouse */
+}
+
+.centered-content {
+  text-align: center; /* Centrar el contenido */
+}
+
+button.btn.accept-btn{
+  background-color: #B22222;
+  font-size: 20px;
+}
+
+button.btn.reject-btn{
+  background-color: #008000;
+  font-size: 20px;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Centrar logo y nombre de usuario */
+    padding: 20px;
+  }
+
+  .profile {
+    text-align: center; /* Centrar nombre de usuario */
+  }
+
+  .menu ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .menu ul li a {
+    display: block;
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  table, th, td {
+    font-size: 0.8rem;
+  }
+}
