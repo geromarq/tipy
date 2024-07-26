@@ -2,11 +2,12 @@
 document.getElementById('phone-number').addEventListener('input', function(event) {
     this.value = this.value.replace(/[^0-9]/g, '');
 });
+document.getElementById('fechaActual').textContent = getFecha();
 
 function validateAndShowPrincipal() {
     var phoneNumber = document.getElementById('phone-number').value;
-    if (!phoneNumber || phoneNumber.length !== 10) {
-        alert('Por favor, ingrese su número de teléfono de 10 dígitos.');
+    if (!phoneNumber || phoneNumber.length !== 9) {
+        alert('Por favor, ingrese su número de teléfono de 9 dígitos.');
     } else {
         showPrincipal();
     }
@@ -21,11 +22,32 @@ function showPrincipal() {
 function showBienvenida(){
     var principal = document.getElementById("principal"); 
     var bienvenida = document.getElementById("bienvenida");
-    /* asdasdasd */
     bienvenida.style.display = "block";
     principal.style.display = "none";
     
-}// Function to generate a UUID
+}
+function getFecha() {
+    const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  
+    const now = new Date();
+    const dayName = days[now.getDay()];
+    const day = now.getDate();
+    const monthName = months[now.getMonth()];
+  
+    return `Fecha: ${dayName}, ${day} de ${monthName}`;
+  }
+
+
+
+
+
+
+
+
+
+
+  // Function to generate a UUID
 function generateUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
