@@ -2,12 +2,13 @@
 /*
 Funcionalidades CLIENTE 
 */
-function sugerir($numeroTelef, $comboSugerencia, $Texto, $montoPropina, $idFiesta) {
+function sugerir($numeroTelef, $comboSugerencia, $Texto, $montoPropina, $idFiesta)
+{
     $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
     $tipoSolicitudMap = [
         'Genero' => '1',
         'Cancion' => '2',
-        'Otro' => '3' 
+        'Otro' => '3'
     ];
     if (!array_key_exists($comboSugerencia, $tipoSolicitudMap)) {
         die("Tipo de solicitud inválido.");
@@ -40,7 +41,8 @@ function sugerir($numeroTelef, $comboSugerencia, $Texto, $montoPropina, $idFiest
 }
 
 
-function obtenerDjActual($fiestaId) {
+function obtenerDjActual($fiestaId)
+{
     // Conectar a la base de datos
     $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
 
@@ -70,12 +72,6 @@ function obtenerDjActual($fiestaId) {
 
     return $djActual ? $djActual : "No hay DJ tocando actualmente.";
 }
-
-
-
-
-
-
 function getNombreFiesta()
 {
     if (isset($_GET['idfiesta'])) {
@@ -92,43 +88,53 @@ function getNombreFiesta()
         mysqli_close($conexion);
     } else {
         echo "<p>Redirigir a pantalla 404(Fiesta no encontrada)</p>"; //REDIRIGIR A PANTALLA ERROR 
-        error_reporting(0); //borrar una vez que se reditige 
+        error_reporting(0); //borrar una vez que se reditige
     }
 }
-function getNombreDJ()
-{
-    if (isset($_GET['idfiesta'])) {
-        $idFiesta = htmlspecialchars($_GET['idfiesta']); // htmlspecialchars() is used to avoid XSS attacks
-        $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
-        $registros = mysqli_query($conexion, "SELECT nombre_Dj FROM djs WHERE id_fiesta = '$idFiesta' ") or die("Problemas en el select:" . mysqli_error($conexion));
-        if (mysqli_num_rows($registros)) {
-            return true;
-        } else if ($registros = null) {
-            return false;
-        }
-        mysqli_close($conexion);
-        echo "<h3>Hello, $idFiesta!</h3>";
-    } else {
-        echo "<p>No conec</p>";
-    }
-}
+
 function getNombreLocal()
 {
-    if (isset($_GET['idfiesta'])) {
-        $idFiesta = htmlspecialchars($_GET['idfiesta']); // htmlspecialchars() is used to avoid XSS attacks
+}
+/* 
+
+FUNCIONES DJ 
+VVVVVVVVVVVV
+
+*/
+
+function getSugerenciaID()
+{
         $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
-        $registros = mysqli_query($conexion, "SELECT nombre_local FROM djs WHERE id_fiesta = '$idFiesta' ") or die("Problemas en el select:" . mysqli_error($conexion));
-        if (mysqli_num_rows($registros)) {
-            return true;
-        } else if ($registros = null) {
-            return false;
+        $registros = @mysqli_query($conexion, "SELECT * FROM usuarios WHERE FiestaID = '$idFiesta' ");
+        if (mysqli_num_rows($registros) > 0) {
+            $row = mysqli_fetch_assoc($registros);
+            $nombreFiesta = $row['NombreFiesta'];
+            echo '<h3>' . htmlspecialchars($nombreFiesta) . '</h3>';
+        } else {
+            echo '<p>No se encontró ninguna fiesta con el ID especificado.</p>';
         }
         mysqli_close($conexion);
-        echo "<h3>Hello, $idFiesta!</h3>";
-    } else {
-        echo "<p>Parameters 'name' and 'age' are not set in the URL.</p>";
-    }
+    
+
+
+
+            /* <td></td>
+              <td> 0 </td>
+              <td>Pendiente</td>*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Temporal vvvv Esto es para limitar el numero de sugerencias cada 30 minutos a 10 

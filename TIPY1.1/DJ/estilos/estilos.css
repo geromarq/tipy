@@ -1,354 +1,647 @@
-/* Reset general para evitar márgenes y padding por defecto */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #121212; /* Fondo oscuro */
-  color: #fff; /* Color de texto blanco */
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden; /* Evita el desplazamiento horizontal */
-}
-
-.main-container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.title {
-  font-size: 3rem;
-  margin: 0;
-  color: #fff; /* Color de texto blanco */
-  margin-bottom: 15px;
-}
-
-.profile {
-  text-align: center;
-}
-
-.separation-line {
-  border-bottom: 1px solid #1e1e1e; /* Línea de separación coherente con el fondo */
-  width: 100%;
-  margin: 20px 0;
-}
-
-.menu {
-  width: 100%;
-  background-color: #1e1e1e; /* Fondo del menú */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Efecto 3D */
-  text-align: center; /* Centrar el texto dentro del menú */
-  margin-bottom: 20px;
-  padding: 20px;
-}
-
-button.contact-support-btn {
-  background-color: #444444; /* Fondo oscuro */
-  color: #fff; /* Color de texto blanco */
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-button.contact-support-btn:hover {
-  background-color: #333333; /* Fondo oscuro al pasar el mouse */
-}
-
-.menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.menu ul li a {
-  text-decoration: none;
-  color: #fff; /* Color de texto blanco */
-  font-size: 20px;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.menu ul li a:hover {
-  background-color: #333333; /* Fondo oscuro al pasar el mouse */
-}
-
-.notifications-container,
-.tips-management-container,
-.profile-settings-container,
-.tip-rates-container,
-.support-container {
-  width: 100%; /* Ajustar el ancho al 100% */
-  margin: 20px 0;
-  padding: 20px;
-  background: #1e1e1e; /* Fondo oscuro */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Efecto 3D */
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.bold-title {
-  font-weight: bold; /* Título en negrita */
-}
-
-.notification {
-  background-color: #333333; /* Fondo oscuro */
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-table {
-  width: 100%; /* Ajustar el ancho al 100% */
-  border-collapse: collapse;
-}
-
-th,
-td {
-  border: 1px solid #333333; /* Bordes oscuros */
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color: #444444; /* Fondo oscuro */
-}
-
-.actions {
-  text-align: center;
-}
-
-.actions .btn {
-  width: 110px; /* Ancho fijo para los botones */
-  background-color: #444444; /* Fondo oscuro */
-  color: #fff; /* Color de texto blanco */
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-bottom: 15px;
-  white-space: nowrap; /* Evitar el desbordamiento del texto */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Añadir puntos suspensivos si el texto es demasiado largo */
-}
-
-.actions .btn:hover {
-  background-color: #333333; /* Fondo oscuro al pasar el mouse */
-}
-
-button.btn.accept-btn {
-  background-color: #B22222;
-  font-size: 16px; /* Ajuste del tamaño de fuente */
-}
-
-button.btn.reject-btn {
-  background-color: #008000;
-  font-size: 16px; /* Ajuste del tamaño de fuente */
-}
-
-.centered-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* Estilos para los inputs y botones en Configuración de Perfil y Tarifas de Propinas */
-.profile-settings-container .form-input,
-.tip-rates-container .form-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #333333; /* Fondo oscuro */
-  color: #fff; /* Color de texto blanco */
-}
-
-.profile-settings-container .update-btn,
-.tip-rates-container .update-btn {
-  background-color: #444444; /* Fondo oscuro */
-  color: #fff; /* Color de texto blanco */
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.profile-settings-container .update-btn:hover,
-.tip-rates-container .update-btn:hover {
-  background-color: #333333; /* Fondo oscuro al pasar el mouse */
-}
-
-/* Margen inferior para labels en Configuración de Perfil */
-.profile-settings-container label {
-  margin-bottom: 20px; /* Ajusta el valor según sea necesario */
-}
-
-/* Margen inferior para labels en Tarifas de Propinas */
-.tip-rates-container label {
-  margin-bottom: 20px; /* Ajusta el valor según sea necesario */
-}
-
-input#contact-info.form-input{
-  margin-top: 10px;
-}
-
-input#music-preferences.form-input{
-  margin-top: 10px;
-}
-
-input#min-tip-amount.form-input{
-  margin-top: 10px;
-}
-
-/* Estilos adicionales para dispositivos móviles */
-@media (max-width: 768px) {
-  .container,
-  .menu {
-    flex-direction: column;
-  }
-
-  .menu ul li {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  table,
-  th,
-  td {
-    display: block;
-    width: 100%;
-    text-align: center; /* Centrar el texto en tablas */
-  }
-
-  th {
-    text-align: center;
-    padding-right: 10px;
-  }
-
-  td {
-    text-align: center;
-    padding-left: 10px;
-    position: relative;
-  }
-
-  td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    padding-left: 10px;
-    font-weight: bold;
-    text-align: center; /* Centrar el texto de los datos */
-  }
-
-  .menu ul {
-    text-align: center; /* Centrar el texto en el menú */
-  }
-
-  .notifications-container,
-  .tips-management-container,
-  .profile-settings-container,
-  .tip-rates-container,
-  .support-container {
-    text-align: center; /* Centrar el contenido en contenedores */
-  }
-
-  .actions {
-    display: flex;
-    justify-content: center; /* Centrar los botones horizontalmente */
-    gap: 10px; /* Espacio entre los botones */
-  }
-
-  .actions .btn {
-    display: inline-block; /* Mostrar los botones en línea */
-    margin: 0 5px; /* Espacio a los lados de los botones */
-  }
-
-  button.contact-support-btn {
-    display: block;
-    margin: 0 auto; /* Centrar el botón de contacto */
-  }
-
-  .profile-settings-container .form-input,
-  .tip-rates-container .form-input,
-  .profile-settings-container .update-btn,
-  .tip-rates-container .update-btn {
-    display: block;
-    margin: 0 auto; /* Centrar inputs y botones de actualización */
-  }
-
-  /* Espacio adicional entre elementos en dispositivos móviles */
-  .profile-settings-container .form-input,
-  .tip-rates-container .form-input {
-    margin-bottom: 20px; /* Aumentar margen inferior */
-  }
-
-  .profile-settings-container label,
-  .tip-rates-container label {
-    margin-bottom: 20px; /* Espacio entre etiquetas e inputs */
-  }
-
-  .profile-settings-container .update-btn,
-  .tip-rates-container .update-btn {
-    margin-top: 20px; /* Aumentar margen superior */
-  }
-
-  .tips-management-container {
-    width: 100%;
-    margin: 20px 0;
-    padding: 20px;
-    background: #1e1e1e; /* Fondo oscuro */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Efecto 3D */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar contenido horizontalmente */
-  }
-  
-  table {
-    width: auto; /* Ajustar el ancho automáticamente */
-    border-collapse: collapse;
-    margin: 0 auto; /* Centrar la tabla horizontalmente */
-  }
-  
-  th,
-  td {
-    border: 1px solid #333333; /* Bordes oscuros */
-    padding: 10px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #444444; /* Fondo oscuro */
-  }
-  
-}
+/* Reset general para evitar márgenes y padding por defecto */
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+
+  font-family: Arial, sans-serif;
+
+  background: #121212;
+  /* Fondo oscuro */
+
+  color: #fff;
+  /* Color de texto blanco */
+
+  margin: 0;
+
+  padding: 0;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  overflow-x: hidden;
+  /* Evita el desplazamiento horizontal */
+
+}
+
+
+
+.main-container {
+
+  width: 100%;
+
+  max-width: 1200px;
+
+  padding: 20px;
+
+}
+
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+.container img {
+  width: auto;
+  height: 50px;
+  margin-right: 5px;
+}
+
+
+.container div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-left: 5px;
+  color: #fff;
+  /* Color de texto blanco */
+}
+
+
+
+
+
+.profile {
+
+  text-align: center;
+
+}
+
+
+
+.separation-line {
+
+  border-bottom: 1px solid #1e1e1e;
+  /* Línea de separación coherente con el fondo */
+
+  width: 100%;
+
+  margin: 20px 0;
+
+}
+
+
+
+.menu {
+
+  width: 100%;
+
+  background-color: #1e1e1e;
+  /* Fondo del menú */
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  /* Efecto 3D */
+
+  text-align: center;
+  /* Centrar el texto dentro del menú */
+
+  margin-bottom: 20px;
+
+  padding: 20px;
+
+}
+
+
+
+button.contact-support-btn {
+
+  background-color: #444444;
+  /* Fondo oscuro */
+
+  color: #fff;
+  /* Color de texto blanco */
+
+  border: none;
+
+  border-radius: 5px;
+
+  padding: 10px 20px;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+}
+
+
+
+button.contact-support-btn:hover {
+
+  background-color: #333333;
+  /* Fondo oscuro al pasar el mouse */
+
+}
+
+
+
+.menu ul {
+
+  list-style-type: none;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+
+.menu ul li {
+
+  display: inline;
+
+  margin-right: 20px;
+
+}
+
+
+
+.menu ul li a {
+
+  text-decoration: none;
+
+  color: #fff;
+  /* Color de texto blanco */
+
+  font-size: 20px;
+
+  padding: 10px 20px;
+
+  border-radius: 5px;
+
+}
+
+
+
+.menu ul li a:hover {
+
+  background-color: #333333;
+  /* Fondo oscuro al pasar el mouse */
+
+}
+
+
+
+.notifications-container,
+
+.tips-management-container,
+
+.profile-settings-container,
+
+.tip-rates-container,
+
+.support-container {
+
+  width: 100%;
+  /* Ajustar el ancho al 100% */
+
+  margin: 20px 0;
+
+  padding: 20px;
+
+  background: #1e1e1e;
+  /* Fondo oscuro */
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  /* Efecto 3D */
+
+}
+
+
+
+.section-title {
+
+  font-size: 2rem;
+
+  margin-bottom: 10px;
+
+}
+
+
+
+.bold-title {
+
+  font-weight: bold;
+  /* Título en negrita */
+
+}
+
+
+
+.notification {
+
+  background-color: #333333;
+  /* Fondo oscuro */
+
+  padding: 10px;
+
+  border-radius: 5px;
+
+  margin-bottom: 10px;
+
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #333333;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #444444;
+}
+
+.actions {
+  text-align: center;
+}
+
+.actions .btn {
+  width: 110px;
+  background-color: #444444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions .btn:hover {
+  background-color: #333333;
+}
+
+button.btn.accept-btn {
+  background-color: #B22222;
+  font-size: 16px;
+}
+
+button.btn.reject-btn {
+  background-color: #008000;
+  font-size: 16px;
+}
+
+.centered-content {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+}
+
+
+
+/* Estilos para los inputs y botones en Configuración de Perfil y Tarifas de Propinas */
+
+.profile-settings-container .form-input,
+
+.tip-rates-container .form-input {
+
+  width: 100%;
+
+  padding: 10px;
+
+  margin-bottom: 15px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background-color: #333333;
+  /* Fondo oscuro */
+
+  color: #fff;
+  /* Color de texto blanco */
+
+}
+
+
+
+.profile-settings-container .update-btn,
+
+.tip-rates-container .update-btn {
+
+  background-color: #444444;
+  /* Fondo oscuro */
+
+  color: #fff;
+  /* Color de texto blanco */
+
+  border: none;
+
+  border-radius: 5px;
+
+  padding: 10px 20px;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+}
+
+
+
+.profile-settings-container .update-btn:hover,
+
+.tip-rates-container .update-btn:hover {
+
+  background-color: #333333;
+  /* Fondo oscuro al pasar el mouse */
+
+}
+
+
+
+/* Margen inferior para labels en Configuración de Perfil */
+
+.profile-settings-container label {
+
+  margin-bottom: 20px;
+  /* Ajusta el valor según sea necesario */
+
+}
+
+
+
+/* Margen inferior para labels en Tarifas de Propinas */
+
+.tip-rates-container label {
+
+  margin-bottom: 20px;
+  /* Ajusta el valor según sea necesario */
+
+}
+
+
+
+input#contact-info.form-input {
+  margin-top: 122px;
+
+}
+
+
+
+
+
+
+input#min-tip-amount.form-input {
+
+  margin-top: 10px;
+
+}
+
+
+
+/* Estilos adicionales para dispositivos móviles */
+
+@media (max-width: 768px) {
+
+  .container,
+
+  .menu {
+
+    flex-direction: column;
+
+  }
+
+  /* Ocultar los encabezados de la tabla */
+  /* Ocultar los encabezados de la tabla */
+  th {
+    display: none;
+  }
+
+  /* Usar CSS Grid para dividir las filas en dos columnas */
+  td {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    text-align: left;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+  /* Centrar el texto en las celdas y ajustar el padding */
+  td {
+    text-align: left;
+    padding: 5px;
+    position: relative;
+  }
+
+  .menu ul {
+    text-align: center;
+  }
+
+  .notifications-container,
+
+  .tips-management-container,
+
+  .profile-settings-container,
+
+  .tip-rates-container,
+
+  .support-container {
+
+    text-align: center;
+    /* Centrar el contenido en contenedores */
+
+  }
+
+
+
+  .actions {
+
+    display: flex;
+
+    justify-content: center;
+    /* Centrar los botones horizontalmente */
+
+    gap: 10px;
+    /* Espacio entre los botones */
+
+  }
+
+
+
+  .actions .btn {
+
+    display: inline-block;
+    /* Mostrar los botones en línea */
+
+    margin: 0 5px;
+    /* Espacio a los lados de los botones */
+
+  }
+
+
+
+  button.contact-support-btn {
+
+    display: block;
+
+    margin: 0 auto;
+    /* Centrar el botón de contacto */
+
+  }
+
+
+
+  .profile-settings-container .form-input,
+
+  .tip-rates-container .form-input,
+
+  .profile-settings-container .update-btn,
+
+  .tip-rates-container .update-btn {
+
+    display: block;
+
+    margin: 0 auto;
+    /* Centrar inputs y botones de actualización */
+
+  }
+
+
+
+  /* Espacio adicional entre elementos en dispositivos móviles */
+
+  .profile-settings-container .form-input,
+
+  .tip-rates-container .form-input {
+
+    margin-bottom: 20px;
+    /* Aumentar margen inferior */
+
+  }
+
+
+
+  .profile-settings-container label,
+
+  .tip-rates-container label {
+
+    margin-bottom: 20px;
+    /* Espacio entre etiquetas e inputs */
+
+  }
+
+
+
+  .profile-settings-container .update-btn,
+
+  .tip-rates-container .update-btn {
+
+    margin-top: 20px;
+    /* Aumentar margen superior */
+
+  }
+
+
+
+  .tips-management-container {
+
+    width: 100%;
+
+    margin: 20px 0;
+
+    padding: 20px;
+
+    background: #1e1e1e;
+    /* Fondo oscuro */
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    /* Efecto 3D */
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    /* Centrar contenido horizontalmente */
+
+  }
+
+
+
+  table {
+
+    width: auto;
+    /* Ajustar el ancho automáticamente */
+
+    border-collapse: collapse;
+
+    margin: 0 auto;
+    /* Centrar la tabla horizontalmente */
+
+  }
+
+
+
+  th,
+
+  td {
+
+    border: 1px solid #333333;
+    /* Bordes oscuros */
+
+    padding: 10px;
+
+    text-align: center;
+
+  }
+
+
+
+  th {
+
+    background-color: #444444;
+    /* Fondo oscuro */
+
+  }
+
+
+
+}
