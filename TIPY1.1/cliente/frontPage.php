@@ -6,7 +6,7 @@ include '../funciones.php';
 
 <head>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-    <link rel="StyleSheet" href="estilos/estilos.css" type="text/css" />
+    <link rel="StyleSheet" href="../estilos/estilos.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="../img/FHD.png">

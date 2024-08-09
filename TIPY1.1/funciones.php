@@ -86,6 +86,7 @@ function getNombreFiesta()
             echo '<p>No se encontró ninguna fiesta con el ID especificado.</p>';
         }
         mysqli_close($conexion);
+        echo "<h3>$idFiesta</h3>";
     } else {
         echo "<p>Redirigir a pantalla 404(Fiesta no encontrada)</p>"; //REDIRIGIR A PANTALLA ERROR 
         error_reporting(0); //borrar una vez que se reditige
@@ -102,7 +103,7 @@ VVVVVVVVVVVV
 
 */
 
-function getSugerenciaID()
+function getSugerenciaID($idFiesta)
 {
         $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
         $registros = @mysqli_query($conexion, "SELECT * FROM usuarios WHERE FiestaID = '$idFiesta' ");
