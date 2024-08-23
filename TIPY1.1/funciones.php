@@ -85,8 +85,7 @@ function getNombreFiesta()
         } else {
             echo '<p>No se encontró ninguna fiesta con el ID especificado.</p>';
         }
-        mysqli_close($conexion);
-        echo "<h3>$idFiesta</h3>";
+        mysqli_close($conexion);        
     } else {
         echo "<p>Redirigir a pantalla 404(Fiesta no encontrada)</p>"; //REDIRIGIR A PANTALLA ERROR 
         error_reporting(0); //borrar una vez que se reditige
@@ -203,3 +202,30 @@ Funcionalidades DJ
 /*
 Funcionalidades ADMINISTRADOR
 */
+
+
+function login($username, $password) {
+    // Conectar a la base de datos
+    $conexion = @mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
+
+    // Cifrar la contraseña usando SHA256
+    $passwordHashed = hash('sha256', $password);
+
+    // Consulta SQL para verificar las credenciales
+    $sql = "SELECT * FROM administradores WHERE Username = ? AND Password = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("ss", $username, $passwordHashed);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    // Verificar si se encontró un administrador con esas credenciales
+    if ($resultado->num_rows > 0) {
+        $stmt->close();
+        $conexion->close();
+        return true; // Login exitoso
+    } else {
+        $stmt->close();
+        $conexion->close();
+        return false; // Credenciales incorrectas
+    }
+}

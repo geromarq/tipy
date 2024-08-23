@@ -16,5 +16,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idFiesta = $_POST['idFiesta'];
     sugerir($numeroTelef, $comboSugerencia, $Texto, $montoPropina, $idFiesta);
 }
-/* }
- */
+header("Location: frontPage.php");
+?>

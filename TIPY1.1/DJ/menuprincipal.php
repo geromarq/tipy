@@ -19,7 +19,7 @@
         <h1 class="title">Tipy</h1>
       </div>
       <div class="profile">
-        <span class="profile-name">John Doe</span>
+        <span class="profile-name">Tu nombre</span>
       </div>
     </div>
 
@@ -54,9 +54,9 @@
           </tr>
           <tr>
             <td data-label="Nro. de solicitud">1</td>
-            <td data-label="Telefono">093742244</td>
+            <td data-label="Telefono">091192192</td>
             <td data-label="Tipo">Cancion</td>
-            <td data-label="Texto">Quiero escuchar Donde estan las gatas</td>
+            <td data-label="Texto">Recomendacion de cancion</td>
             <td data-label="Propina">0</td>
             <td data-label="Hora del Pedido">03:04:56</td>
             <td class="actions">
@@ -75,7 +75,7 @@
     <div id="configuracion" class="profile-settings-container">
       <h2 class="section-title">Perfil</h2>
       <label for="contact-info">Horario:</label>
-      <div class="form-input"> 00:00:00 - 02:59:59 </div>
+      <div class="form-input">Nombre DJ | 00:00:00 - 02:59:59 <br> Nombre DJ 2 | 03:00:00 - 05:59:59</div>
     </div>
 
     <div class="separation-line"></div>

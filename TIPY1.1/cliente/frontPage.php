@@ -6,7 +6,7 @@ include '../funciones.php';
 
 <head>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-    <link rel="StyleSheet" href="../estilos/estilos.css" type="text/css" />
+    <link rel="StyleSheet" href="estilos/estilos.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="../img/FHD.png">
@@ -21,7 +21,7 @@ include '../funciones.php';
                 </button>
             </li>
             <li class="partyName">
-               <button onclick="window.location.href = '../loginAdministrativo.html'"><?php getNombreFiesta(); ?></button>
+               <button onclick="window.location.href = '../loginAdministrativo.php'"><?php getNombreFiesta(); ?></button>
             </li>
         </ul>
     </nav>
@@ -42,6 +42,7 @@ include '../funciones.php';
     </article>
     <article class="principal" id="principal">
         <h3>Informacion del evento</h3>
+        <p>Local: <?php echo "Nombre local eventos"?></p>
         <p>DJ: <?php echo obtenerDjActual(intval($_GET['idfiesta']));?></p>
         <p id='fechaActual'></p>
         <!-- <p>Monto minimo: $100</p> -->

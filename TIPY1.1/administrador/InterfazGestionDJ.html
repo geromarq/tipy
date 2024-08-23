@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de DJs - Tipy</title>
+    <link rel="stylesheet" href="InterfazGestionDJ.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <h1>Tipy</h1>
+        </div>
+        <div class="header-right">
+            <p>DJ: [Nombre del DJ]</p>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="section-title">Administración de DJs</h2>
+        
+        <section class="card">
+            <h3>Alta de DJ</h3>
+            <form>
+                <label for="nombre-dj">Nombre:</label>
+                <input type="text" id="nombre-dj" name="nombre-dj" required>
+                
+                <label for="horario-trabajo">Horario de Trabajo:</label>
+                <input type="text" id="horario-trabajo" name="horario-trabajo" required>
+                
+                <button type="submit" class="btn">Agregar DJ</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h3>Baja de DJ</h3>
+            <form>
+                <label for="nombre-dj-baja">Nombre:</label>
+                <input type="text" id="nombre-dj-baja" name="nombre-dj-baja" required>
+                
+                <label for="id-dj">ID DJ:</label>
+                <input type="text" id="id-dj" name="id-dj" required>
+                
+                <button type="submit" class="btn delete-btn">Eliminar DJ</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h3>Modificación de DJ</h3>
+            <form>
+                <label for="buscar-nombre-dj">Buscar Nombre:</label>
+                <input type="text" id="buscar-nombre-dj" name="buscar-nombre-dj" required>
+                <button type="submit" class="btn">Buscar</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID DJ</th>
+                        <th>Nombre</th>
+                        <th>Horario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos de DJ similares -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h3>Consulta de DJ</h3>
+            <form>
+                <label for="consulta-nombre-dj">Buscar Nombre:</label>
+                <input type="text" id="consulta-nombre-dj" name="consulta-nombre-dj" required>
+                <button type="submit" class="btn">Buscar</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID DJ</th>
+                        <th>Nombre DJ</th>
+                        <th>Horario Entrada</th>
+                        <th>Horario Salida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos del DJ -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

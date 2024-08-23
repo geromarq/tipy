@@ -1,0 +1,89 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #1A1A1A;
+    padding: 20px;
+    text-align: left;
+    border-bottom: 2px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header .usuario {
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+main {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.gestion-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #333333;
+    width: 45%;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #555555;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #FFFFFF; /* Dorado para destacar */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card p {
+    font-size: 16px;
+    color: #FFFFFF;
+}
