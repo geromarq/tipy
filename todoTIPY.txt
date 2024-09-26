@@ -1,0 +1,77 @@
+ADMINISTRADOR 
+VALIDACION DE SESION
+
+
+
+----------------- Gestion Fiestas -------------------
+ALTA
+
+Get nombre administrador
+Nombre de la fiesta ya existe
+Mejorar la fecha / alert(ya existe fiesta en esta fecha, desea continuar)
+Lugar, dropdown con todos los lugares disponibles
+
+
+BAJA
+buscar por id o nombre con radiobutton 
+alert de confirmacion
+
+MODIFICACION 
+Hacer que busque bbien
+buscar por id o nombre con radiobutton 
+que muestre en la tabla pero que sean inputs
+
+CONSULTA 
+buscar por id o nombre con radiobutton 
+poner boton que diga mostrar todo y abra otra pestaña
+
+
+
+Crear ui: 
+DJ 
+ADMINISTRADOR 
+
+Cambiar paleta de colores
+fijarse en pinterest y apps similares. 
+
+Incluir pedir num celular como pk 
+
+Trackear los clicks 
+
+Mapear el flujo
+
+(not priority)Mensaje sms confirmacion
+
+
+(not priority)
+
+
+
+
+Cuando tengamos un mvp hablar con organizadores. 
+Pero sin cobro / track clicks
+
+
+Los djs no tocan toda noche (usuario admin/ maestro) 
+
+(ver)Modelo suscripcion
+
+=======
+No arrancamos cobrando 
+Al principio la app va a ser gratis: (para simular la demanda real) 
+limitar el numero de pedidos a un nuimero limitado y cada x tiempo. 
+Limitar el numero de pedidos por numero de telefono. 
+
+
+
+============
+selecciona usuario. Dfault dj 
+Administrador
+Figma > Recorrido en pantalla
+
+
+
+
+
+
+

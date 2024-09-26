@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Fiestas - Tipy</title>
-    <link rel="stylesheet" href="InterfazGestionFiestas.css">
+    <title>Gestión de Fiestas - Tipy</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <header class="main-header">
@@ -17,11 +17,12 @@
     </header>
 
     <main>
+        <a href="InterfazAdmin.html" class="back-button">← Menú Principal</a>
         <h2 class="section-title">Administración de Fiestas</h2>
         
         <section class="card">
             <h3>Alta de Fiesta</h3>
-            <form>
+            <form id="form-alta-fiesta">
                 <label for="nombre-fiesta">Nombre de la Fiesta:</label>
                 <input type="text" id="nombre-fiesta" name="nombre-fiesta" required>
                 
@@ -37,7 +38,7 @@
 
         <section class="card">
             <h3>Baja de Fiesta</h3>
-            <form>
+            <form id="form-baja-fiesta">
                 <label for="nombre-fiesta-baja">Nombre de la Fiesta:</label>
                 <input type="text" id="nombre-fiesta-baja" name="nombre-fiesta-baja" required>
                 <button type="submit" class="btn delete-btn">Eliminar Fiesta</button>
@@ -46,7 +47,7 @@
 
         <section class="card">
             <h3>Modificación de Fiesta</h3>
-            <form>
+            <form id="form-modificar-fiesta">
                 <label for="buscar-nombre-fiesta">Buscar Nombre de la Fiesta:</label>
                 <input type="text" id="buscar-nombre-fiesta" name="buscar-nombre-fiesta" required>
                 <button type="submit" class="btn">Buscar</button>
@@ -60,7 +61,7 @@
                         <th>Lugar</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="fiestas-lista">
                     <!-- Datos de Fiesta -->
                 </tbody>
             </table>
@@ -68,7 +69,7 @@
 
         <section class="card">
             <h3>Consulta de Fiesta</h3>
-            <form>
+            <form id="form-consulta-fiesta">
                 <label for="consulta-nombre-fiesta">Buscar Nombre de la Fiesta:</label>
                 <input type="text" id="consulta-nombre-fiesta" name="consulta-nombre-fiesta" required>
                 <button type="submit" class="btn">Buscar</button>
@@ -82,11 +83,13 @@
                         <th>Lugar</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="consulta-lista">
                     <!-- Datos de la Fiesta -->
                 </tbody>
             </table>
         </section>
     </main>
+
+    <script src="fiestas_ajax.js"></script>
 </body>
 </html>

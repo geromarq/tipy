@@ -85,16 +85,14 @@ function getNombreFiesta()
         } else {
             echo '<p>No se encontró ninguna fiesta con el ID especificado.</p>';
         }
-        mysqli_close($conexion);        
+        mysqli_close($conexion);
     } else {
         echo "<p>Redirigir a pantalla 404(Fiesta no encontrada)</p>"; //REDIRIGIR A PANTALLA ERROR 
         error_reporting(0); //borrar una vez que se reditige
     }
 }
 
-function getNombreLocal()
-{
-}
+function getNombreLocal() {}
 /* 
 
 FUNCIONES DJ 
@@ -104,21 +102,21 @@ VVVVVVVVVVVV
 
 function getSugerenciaID($idFiesta)
 {
-        $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
-        $registros = @mysqli_query($conexion, "SELECT * FROM usuarios WHERE FiestaID = '$idFiesta' ");
-        if (mysqli_num_rows($registros) > 0) {
-            $row = mysqli_fetch_assoc($registros);
-            $nombreFiesta = $row['NombreFiesta'];
-            echo '<h3>' . htmlspecialchars($nombreFiesta) . '</h3>';
-        } else {
-            echo '<p>No se encontró ninguna fiesta con el ID especificado.</p>';
-        }
-        mysqli_close($conexion);
-    
+    $conexion = mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la base de datos");
+    $registros = @mysqli_query($conexion, "SELECT * FROM usuarios WHERE FiestaID = '$idFiesta' ");
+    if (mysqli_num_rows($registros) > 0) {
+        $row = mysqli_fetch_assoc($registros);
+        $nombreFiesta = $row['NombreFiesta'];
+        echo '<h3>' . htmlspecialchars($nombreFiesta) . '</h3>';
+    } else {
+        echo '<p>No se encontró ninguna fiesta con el ID especificado.</p>';
+    }
+    mysqli_close($conexion);
 
 
 
-            /* <td></td>
+
+    /* <td></td>
               <td> 0 </td>
               <td>Pendiente</td>*/
 }
@@ -203,29 +201,38 @@ Funcionalidades DJ
 Funcionalidades ADMINISTRADOR
 */
 
-
-function login($username, $password) {
+function verificarLogin($username, $password) {
     // Conectar a la base de datos
     $conexion = @mysqli_connect("localhost", "root", "", "tipy") or die("Problemas con la conexión");
 
-    // Cifrar la contraseña usando SHA256
-    $passwordHashed = hash('sha256', $password);
+    // Cifrar la contraseña ingresada con SHA256
+    $passwordCifrada = hash('sha256', $password);
 
-    // Consulta SQL para verificar las credenciales
-    $sql = "SELECT * FROM administradores WHERE Username = ? AND Password = ?";
+    // Preparar la consulta SQL
+    $sql = "SELECT * FROM administradores WHERE Nombre = ? AND Password = ?";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("ss", $username, $passwordHashed);
+
+    // Comprobar si la preparación fue exitosa
+    if ($stmt === false) {
+        die("Error en la consulta SQL: " . htmlspecialchars($conexion->error));
+    }
+
+    // Enlazar los parámetros (ss significa que se esperan dos cadenas de texto)
+    $stmt->bind_param("ss", $username, $passwordCifrada);
+
+    // Ejecutar la consulta
     $stmt->execute();
     $resultado = $stmt->get_result();
 
-    // Verificar si se encontró un administrador con esas credenciales
+    // Comprobar si se encontró el usuario con la contraseña correcta
     if ($resultado->num_rows > 0) {
-        $stmt->close();
-        $conexion->close();
-        return true; // Login exitoso
+        return true;
     } else {
-        $stmt->close();
-        $conexion->close();
-        return false; // Credenciales incorrectas
+        return false;
     }
+
+    // Cerrar la conexión
+    $stmt->close();
+    $conexion->close();
 }
+?>

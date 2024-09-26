@@ -1,67 +1,95 @@
+/* Reset general para evitar márgenes y padding por defecto */
 * {
-    font-family: 'Open Sans', sans-serif;
-    user-select: none;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
+}
+
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background: #121212; /* Fondo oscuro */
+    color: #fff; /* Color de texto blanco */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     display: flex;
-    height: 100vh;
+    justify-content: center;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
 }
 
 .container {
     width: 100%;
+    max-width: 1200px; /* Ajusta este valor según sea necesario */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 10px;
 }
 
-header {
-    background-color: #1A1A1A;
-    padding: 20px;
-    text-align: left;
-    border-bottom: 2px solid #444;
+.logo-container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #fff; /* Color de texto blanco */
+    margin-bottom: 15px;
+}
+
+.separation-line {
+    border-bottom: 1px solid #1e1e1e;
+    width: 100%;
+    margin: 20px 0;
+}
+
+header {
+    width: 100%;
+    background-color: #1A1A1A;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #444;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align text to the left */
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 24px;
     color: #FFFFFF;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 header .usuario {
-    font-size: 16px;
+    font-size: 14px;
     color: #FFFFFF;
 }
 
 main {
     flex-grow: 1;
-    padding: 30px;
-    overflow-y: auto;
+    padding: 20px;
+    width: 100%;
 }
 
 .gestion-cards {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .card {
     background-color: #333333;
-    width: 45%;
-    padding: 30px;
+    width: 100%;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -77,13 +105,40 @@ main {
 
 .card h2 {
     margin: 0;
-    font-size: 24px;
-    color: #FFFFFF; /* Dorado para destacar */
+    font-size: 20px;
+    color: #FFFFFF;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
 
 .card p {
-    font-size: 16px;
+    font-size: 14px;
     color: #FFFFFF;
+}
+
+/* Media query for larger screens */
+@media(min-width: 768px) {
+    .gestion-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header .usuario {
+        font-size: 16px;
+    }
 }

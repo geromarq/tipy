@@ -21,7 +21,7 @@ include '../funciones.php';
                 </button>
             </li>
             <li class="partyName">
-               <button onclick="window.location.href = '../loginAdministrativo.php'"><?php getNombreFiesta(); ?></button>
+               <button onclick="window.location.href = '../loginAdministrativo.html'"><?php getNombreFiesta(); ?></button>
             </li>
         </ul>
     </nav>

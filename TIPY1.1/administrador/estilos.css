@@ -3,21 +3,33 @@ body {
     font-family: Arial, sans-serif;
     background-color: #121212;
     color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    justify-content: center;
+    overflow-x: hidden;
 }
 
 .main-header {
+    width: 90%;
+    /* Ajusta el ancho */
+    max-width: 1200px;
+    /* Limita el ancho máximo */
+    background-color: #1A1A1A;
+    padding: 20px;
+    border-bottom: 2px solid #444;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background: linear-gradient(135deg, #1f1f1f, #3c3c3c);
-    border-bottom: 2px solid #444;
+    margin: 0 auto;
+    /* Centra el header */
 }
 
 .header-left h1 {
+    font-size: 3rem;
     margin: 0;
-    font-size: 28px;
-    color: #E5E5E5;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
 .header-right p {
@@ -55,7 +67,10 @@ label {
 }
 
 input[type="text"],
-input[type="date"] {
+input[type="password"],
+input[type="date"],
+input[type="datetime-local"],
+.card select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -66,7 +81,10 @@ input[type="date"] {
 }
 
 input[type="text"]:focus,
-input[type="date"]:focus {
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+.card select:focus {
     outline: none;
     background-color: #333333;
 }
@@ -84,6 +102,14 @@ input[type="date"]:focus {
 
 .btn:hover {
     background-color: #218838;
+}
+
+.delete-btn {
+    background-color: #DC3545;
+}
+
+.delete-btn:hover {
+    background-color: #C82333;
 }
 
 table {
@@ -112,8 +138,28 @@ tbody td {
     font-size: 14px;
 }
 
+.back-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 15px;
+    background-color: #444;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
 /* Responsividad */
 @media (max-width: 768px) {
+    body {
+        justify-content: center;
+    }
+
     .main-header {
         flex-direction: column;
         align-items: flex-start;
@@ -136,21 +182,55 @@ tbody td {
     .card {
         max-width: 100%;
         padding: 15px;
+        margin: 10px;
     }
 
     .card h3 {
         font-size: 20px;
     }
 
-    table thead th, table tbody td {
+    table thead th,
+    table tbody td {
         font-size: 14px;
         padding: 8px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime-local"],
+    .card select {
+        width: 100%;
+        box-sizing: border-box;
+        /* Ensures padding is included in width */
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .menu-button {
+        font-size: 14px;
+        /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
+        padding: 8px 12px;
+        /* Ajusta el espaciado interno para pantallas más pequeñas */
     }
 }
 
 @media (max-width: 480px) {
     .header-left h1 {
-        font-size: 20px;
+        font-size: 3rem;
     }
 
     .header-right p {
@@ -162,19 +242,42 @@ tbody td {
     }
 
     .card {
-        padding: 10px;
+        padding: 15px;
+        margin: 5px;
     }
 
     .card h3 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
-    label, input[type="text"], input[type="date"], .btn {
-        font-size: 14px;
+    label,
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime-local"],
+    .card select
+    .btn {
+        font-size: 16px;
     }
 
-    table thead th, table tbody td {
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime-local"],
+    .card select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    table thead th,
+    table tbody td {
         font-size: 12px;
         padding: 6px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 15px;
+        margin-top: 8px;
     }
 }
